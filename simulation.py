@@ -75,6 +75,22 @@ f_height = np.random.normal(f_mean, f_stddev, 10000)
 
 prob = (f_height > m_height).mean()
 prob 
-# 21.4 % 
+# 21.4 %
+# 
+# 
+# 6 When installing anaconda on a student's computer, there's a 1 in 250 chance that the download is corrupted and the installation fails. What are the odds that after having 50 students download anaconda, no one has an installation issue? 100 students?
+# What is the probability that we observe an installation issue within the first 150 students that download anaconda?
+
+sims6 = rows = 10000
+studs = ncols = 50
+corru = 1
+ncorru = 0
+fail = 1/250
+
+corrupted = np.random.random(sims6 * studs).reshape(nrows, ncols)
+
+((corrupted < fail).sum(axis=1) == 0).mean()
+
+# 81.26%  
 
 
